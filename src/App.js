@@ -1,17 +1,15 @@
 // import { Fragment } from "react"
 import './App.css';
-
-// Créer un nouveau composant ayant pour nom "Book". Ce composant affichera un élément d'une liste avec le titre d'un livre
-
-const Book = ({ livre = "Nom de livre", auteur = "Nom de l'auteur" }) => {
-  return (
-    <li>{livre} - Ecrit par {auteur}</li>
-  )
-}
+// import par défaut
+// import Book from "./Book"
+// import nommé
+// import { BookActions } from "./Book"
+// Import par défaut suivi d'un import nommé
+import Book, { BookActions as Actions } from "./components/Book/Book"
 
 function App() {
   const livreFavoris = {
-    titre: "L'étranger",
+    livre: "L'étranger",
     auteur: "Albert Camus",
   }
   // Slide aide: https://slides.com/fabiodev/react#/3/4
@@ -21,9 +19,16 @@ function App() {
       <header>Mon header</header>
       <ul>
         <Book livre="Harry Potter" auteur="J. K. Rowlings" ></Book>
-        <Book livre="The Witcher" auteur="Andrzej Sapkowski" />
-        <Book /* Insérer ici les valeurs de livreFavoris */ />
-        <Book />
+        <Actions />
+        <Book><p>Description: Lorem ipsum dolor sit amet.</p></Book>
+        <Book livre={"The Witcher".toUpperCase()} auteur="Andrzej Sapkowski" />
+        <Book {...livreFavoris} />
+      </ul>
+      <ul>
+        <li className="appLi">Agatha Chistie</li>
+        <li className="myLi">Ernest Hemingway</li>
+        <li>Stephen King</li>
+        <li>Robin Hoob</li>
       </ul>
       <footer>Footer</footer>
     </>
