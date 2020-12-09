@@ -5,6 +5,7 @@ class Counter extends Component {
 	constructor(props) {
 		super(props)
 		// this.onIncrement = this.onIncrement.bind(this)
+		console.log("Constructeur appelé")
 		this.state = {
 			count: 0,
 		}
@@ -30,18 +31,31 @@ class Counter extends Component {
 		}))
 	}
 
+	componentDidMount() {
+		console.log("componentDidMount appelé")
+		// Ici, je peux faire des appels http à une API
+	}
+
+	componentDidUpdate() {
+		console.log("componentDidUpdate appelé, mon composant s'est bien mis à jour")
+	}
+
+	componentWillUnmount() {
+		console.log("componentWillUnmount appelé - Notre composant va disparaitre de la page")
+		// Endroit idéal pour se désabonner de certains evenement type: chat, ou se déconnecter d'une bdd type indexeddb
+	}
+
 	render() {
-		// console.log() -> appel de fonction
-		// console.log -> référence à la fonction console.log()
+		console.log("Render appelé")
 		return (
 			<>
-				<p>Compteur: {this.state.count}</p>
-				{/* <button onClick={this.onIncrement}>Incrémenter</button>
-				<button onClick={this.onDecrement}>Décrémenter</button> */}
-				<Button label="Incrementer" callback={this.onIncrement} />
+				<p>Compteur (classe): {this.state.count}</p>
+				<button onClick={this.onIncrement}>Incrémenter</button>
+				<button onClick={this.onDecrement}>Décrémenter</button>
+				{/* <Button label="Incrementer" callback={this.onIncrement} />
 				<Button label="Decrementer" callback={this.onDecrement} />
 				<Button label="+5" callback={() => this.onUpdateCounter(5)} />
-				<Button label="-5" callback={() => this.onUpdateCounter(-5)} />
+				<Button label="-5" callback={() => this.onUpdateCounter(-5)} /> */}
 			</>
 		)
 	}
