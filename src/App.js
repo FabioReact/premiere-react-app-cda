@@ -6,6 +6,7 @@ import './App.css';
 // import { BookActions } from "./Book"
 // Import par défaut suivi d'un import nommé
 import Book, { BookActions as Actions } from "./components/Book/Book"
+import Counter from "./Counter/Counter"
 
 function App() {
   const livreFavoris = {
@@ -30,6 +31,7 @@ function App() {
         <li>Stephen King</li>
         <li>Robin Hoob</li>
       </ul>
+      <Counter />
       <footer>Footer</footer>
     </>
   );
