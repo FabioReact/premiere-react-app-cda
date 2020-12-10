@@ -8,6 +8,7 @@ class Counter extends Component {
 		console.log("Constructeur appelé")
 		this.state = {
 			count: 0,
+			savedValues: [],
 		}
 	}
 
@@ -36,8 +37,10 @@ class Counter extends Component {
 		// Ici, je peux faire des appels http à une API
 	}
 
-	componentDidUpdate() {
-		console.log("componentDidUpdate appelé, mon composant s'est bien mis à jour")
+	componentDidUpdate(prevProps, prevState, snaphshot) {
+		if (this.state.count !== prevState.count) {
+			console.log("componentDidUpdate appelé, mon composant s'est bien mis à jour")
+		}
 	}
 
 	componentWillUnmount() {

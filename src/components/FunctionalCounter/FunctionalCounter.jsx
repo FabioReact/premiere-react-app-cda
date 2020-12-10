@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 const FunctionalCounter = () => {
 	console.log("Nouveau render") // Equivalent du la méthode Render dans une classe
 	const [count, setCount] = useState(0)
+	const [savedValues, setSavedValues] = useState([])
 
 	// useEffect prend deux paramètre
 	// le premier est la fonction à éxécuté
@@ -20,7 +21,7 @@ const FunctionalCounter = () => {
 	useEffect(() => {
 		console.log("Equivalent de componentDidMount + componentDidUpdate")
 		return () => {
-			console.log("Equivalent de componentWillUnmount")
+			console.log("Equivalent de componentWillUnmount - Bye from component")
 		}
 	}, [count])
 
